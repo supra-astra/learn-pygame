@@ -19,6 +19,10 @@ test_surface = pygame.Surface((surface_w,surface_h))
 # add color to it
 test_surface.fill('Red')
 
+sky_surface = pygame.image.load("assets/sky.png")
+ground_surface = pygame.image.load("assets/ground.png")
+
+
 def main():
     # instantiesaties pygame , play sounds and images
     # and other complicated stuff
@@ -45,8 +49,11 @@ def main():
         # on another.
         # 2nd arg is posn we place it
         # (left,top) 
-        screen.blit(test_surface,(200,100))        
-
+        #screen.blit(test_surface,(200,100))        
+        # instead of the offset , keep it in the frame
+        screen.blit(ground_surface, (0,0))
+        screen.blit(sky_surface,(200,100))
+                
         # draw all our elements and update everything
         # updates the screen display surface
         pygame.display.update()
