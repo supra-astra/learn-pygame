@@ -12,6 +12,7 @@ pygame.display.set_caption('Runner')
 #clock helps us with time and framerate
 clock = pygame.time.Clock()
 
+
 # surface made with color
 surface_w = 100
 surface_h = 200
@@ -23,11 +24,19 @@ sky_surface = pygame.image.load("assets/sky.png")
 ground_surface = pygame.image.load("assets/ground.png")
 
 
+
 def main():
     # instantiesaties pygame , play sounds and images
     # and other complicated stuff
     pygame.init()
 
+
+    # font
+    test_font = pygame.font.Font(None,25)
+
+    # text info
+    text_surface = test_font.render("My game",False,"Red")
+    
     # display the surface -> the window that the players are
     # gonna see
     screen = pygame.display.set_mode((width,height))
@@ -51,8 +60,18 @@ def main():
         # (left,top) 
         #screen.blit(test_surface,(200,100))        
         # instead of the offset , keep it in the frame
-        screen.blit(ground_surface, (0,0))
-        screen.blit(sky_surface,(200,100))
+        # and the order matters
+        screen.blit(sky_surface, (0,0))
+        screen.blit(ground_surface, (0,300))
+
+        # surface with some text
+        # creating text
+        ## create a font(text size and style)
+        ## write text on a surface
+        ## blit the text surface
+        screen.blit(text_surface,(300,50))
+        # create an image of the text
+        # place it on the display surface
                 
         # draw all our elements and update everything
         # updates the screen display surface
