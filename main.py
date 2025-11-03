@@ -76,7 +76,9 @@ def main():
         # create an image of the text
         # place it on the display surface
         global snail_x_pos
-        snail_x_pos += 1
+        snail_x_pos -= 4
+        if snail_x_pos < 100:
+            snail_x_pos = 800
         screen.blit(snail_surface,(snail_x_pos,snail_y_pos))
                 
         # draw all our elements and update everything
