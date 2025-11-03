@@ -23,7 +23,10 @@ test_surface.fill('Red')
 sky_surface = pygame.image.load("assets/sky.png")
 ground_surface = pygame.image.load("assets/ground.png")
 
+snail_surface = pygame.image.load("assets/snail/snail1.png")
 
+snail_x_pos = 600
+snail_y_pos = 250
 
 def main():
     # instantiesaties pygame , play sounds and images
@@ -72,6 +75,9 @@ def main():
         screen.blit(text_surface,(300,50))
         # create an image of the text
         # place it on the display surface
+        global snail_x_pos
+        snail_x_pos += 1
+        screen.blit(snail_surface,(snail_x_pos,snail_y_pos))
                 
         # draw all our elements and update everything
         # updates the screen display surface
@@ -79,7 +85,7 @@ def main():
         # while True loop shouldnt run faster than 60ms
         clock.tick(60)
         
-        
+                
 
 
 if __name__ == "__main__":
