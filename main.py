@@ -24,9 +24,14 @@ sky_surface = pygame.image.load("assets/sky.png")
 ground_surface = pygame.image.load("assets/ground.png")
 
 snail_surface = pygame.image.load("assets/snail/snail1.png")
+player_surface = pygame.image.load("assets/player/player_walk_1.png")
+
 
 snail_x_pos = 600
 snail_y_pos = 250
+
+player_x_pos = 800
+player_y_pos = 250
 
 def main():
     # instantiesaties pygame , play sounds and images
@@ -80,10 +85,19 @@ def main():
         if snail_x_pos < 100:
             snail_x_pos = 800
 
+        global player_x_pos
+        player_x_pos += 4
+        if player_x_pos > 100:
+            player_x_pos = 800
+
         global snail_suface
         snail_surface.convert_alpha()
+
+        global player_surface 
+        player_surface.convert_alpha()
         screen.blit(snail_surface,(snail_x_pos,snail_y_pos))
-                
+        screen.blit(player_surface,(player_x_pos,player_y_pos))
+                        
         # draw all our elements and update everything
         # updates the screen display surface
         pygame.display.update()
