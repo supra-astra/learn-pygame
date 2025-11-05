@@ -1,3 +1,6 @@
+import os
+os.environ["PYGAME_HIDE_SUPPORT_PROMPT"] = "Github Gameoff 2025"
+
 import pygame
 from sys import exit
 
@@ -7,7 +10,7 @@ width = 800
 height = 400
 
 #set the title of window
-pygame.display.set_caption('Runner')
+pygame.display.set_caption('Basic Game')
 
 #clock helps us with time and framerate
 clock = pygame.time.Clock()
@@ -26,6 +29,10 @@ ground_surface = pygame.image.load("assets/ground.png")
 snail_surface = pygame.image.load("assets/snail/snail1.png")
 player_surface = pygame.image.load("assets/player/player_walk_1.png")
 
+# left,top,width,height 
+#player_rect = pygame.Rect()
+# get rectangle the same size as it
+player_rect = player_surface.get_rect(topleft = (80,200))
 
 snail_x_pos = 600
 snail_y_pos = 250
@@ -86,8 +93,8 @@ def main():
             snail_x_pos = 800
 
         global player_x_pos
-        player_x_pos += 4
-        if player_x_pos > 100:
+        player_x_pos -= 6
+        if player_x_pos < 100:
             player_x_pos = 800
 
         global snail_suface
@@ -96,8 +103,10 @@ def main():
         global player_surface 
         player_surface.convert_alpha()
         screen.blit(snail_surface,(snail_x_pos,snail_y_pos))
-        screen.blit(player_surface,(player_x_pos,player_y_pos))
-                        
+        #screen.blit(player_surface,(player_x_pos,player_y_pos))
+        screen.blit(player_surface,player_rect)
+
+                       
         # draw all our elements and update everything
         # updates the screen display surface
         pygame.display.update()
