@@ -1,4 +1,3 @@
-## learn-pygame
+## learn pygame 
 
-I small game I made in order to understand PyGame.
-
+learning pygame has never been this easier.
